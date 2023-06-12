@@ -1,0 +1,10 @@
+---
+- name: Install firewall using hsot scope variables
+  hosts: webserver
+  tasks:
+    - name: Install firwall
+      apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+...
