@@ -1,0 +1,20 @@
+---
+- name: Implementing docker compose uisng ansible
+  hosts: all
+  tasks:
+    - name: Create mysql container
+      docker_container:
+        name: mydb
+        image: mysql:5
+        env:
+          MYSQL_ROOT_PASSWORD: intelliqit
+
+    - name: Create a wordpress container
+      docker_container:
+        name: mywordpress
+        image: wordpress
+        ports:
+          - 8888:80
+        links:
+          - mydb:mysql
+...

@@ -1,0 +1,15 @@
+---
+- name: Login into docker registry and push an image
+  hosts: 172.31.11.134
+  tasks:
+    - name: Login into docker hub
+      docker_login:
+        username: intelliqit
+        password: krishna123
+    - name: Push the customsied image
+      docker_image:
+        name: intelliqit/ubuntu222
+        source: local
+        push: true
+
+
